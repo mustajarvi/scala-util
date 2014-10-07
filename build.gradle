@@ -3,6 +3,11 @@ apply plugin: "eclipse"
 
 repositories {
 	mavenCentral()
+
+	maven {
+		// specs2 all requires scalaz streams for one of the modules, just use specs2-core perhaps..?
+		url "http://dl.bintray.com/scalaz/releases"
+	}
 }
 
 dependencies {
