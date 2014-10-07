@@ -23,3 +23,15 @@ dependencies {
 	// automatically in the next version
 	testCompile 'org.codehaus.groovy:groovy-all:1.8.8+'
 }
+
+// http://stackoverflow.com/questions/21945508/how-to-use-selected-classes-from-other-subproject-as-test-dependency-in-gradle
+task betamaxJar(type: Jar) {
+    classifier = "tests"
+    from sourceSets.test.output
+    exclude "**/*Test.class"
+    include "**/Betamax*.class"
+}
+
+artifacts {
+    testCompile betamaxJar
+}
