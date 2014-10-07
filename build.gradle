@@ -7,4 +7,14 @@ repositories {
 
 dependencies {
 	compile "org.scala-lang:scala-library:2.10.4+"
+
+	testCompile 'org.specs2:specs2_2.10:2.4.6'
+	testCompile 'junit:junit:4.11+'
+
+	// http persistent proxy for online testing
+	testCompile 'co.freeside:betamax:1.1.2+'
+
+	// dependency needed for betamax, will be taken care of
+	// automatically in the next version
+	testCompile 'org.codehaus.groovy:groovy-all:1.8.8+'
 }
