@@ -13,6 +13,9 @@ repositories {
 dependencies {
 	compile "org.scala-lang:scala-library:2.10.4+"
 
+	// Needed for the MetricsHelper helper trait. Should perhaps be split out in the future.
+	compile 'io.dropwizard.metrics:metrics-core:3.1+'
+
 	testCompile 'org.specs2:specs2_2.10:2.4.6'
 	testCompile 'junit:junit:4.11+'
 
