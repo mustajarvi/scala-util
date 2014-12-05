@@ -10,6 +10,8 @@ class Tapper[A](tapMe: A) {
 }
 
 object Tap {
+  import scala.language.implicitConversions
+
   implicit def any2Tapper[A](toTap: A): Tapper[A] = new Tapper(toTap)
 }
 
