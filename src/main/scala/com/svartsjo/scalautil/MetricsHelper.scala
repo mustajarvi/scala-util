@@ -3,7 +3,6 @@ package com.svartsjo.scalautil
 import java.util.concurrent.TimeUnit
 import com.codahale.metrics.ConsoleReporter
 import com.codahale.metrics.MetricRegistry
-import com.codahale.metrics.Timer
 
 trait MetricsHelper {
   import com.codahale.metrics._
@@ -17,7 +16,7 @@ trait MetricsHelper {
   def getTimer(names: String*) = metricsRegistry.timer(name(names: _*))
   def getCounter(names: String*) = metricsRegistry.counter(name(names: _*))
 
-  def time[A](f: => A, timer: Timer): A = {
+  def time[A](f: => A, timer: com.codahale.metrics.Timer): A = {
     val context = timer.time()
     try {
       f
