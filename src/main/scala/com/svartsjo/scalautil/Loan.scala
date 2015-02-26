@@ -5,7 +5,9 @@ package com.svartsjo.scalautil
 
 import java.io._
 
-class Loan[A <: AutoCloseable](resource: A) {
+import scala.language.reflectiveCalls
+
+class Loan[A <: {def close()}](resource: A) {
   def to[B](block: A => B) = {
     var t: Throwable = null
     try {
